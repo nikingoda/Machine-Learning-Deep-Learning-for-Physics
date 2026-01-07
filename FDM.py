@@ -39,8 +39,9 @@ V_F = -e_charge * F * (z_int + L/2)
 V_total = V_conf + V_B + V_F 
 # V_total = V_total - np.min(V_total)
 # V_total = V_conf
-# --- Compute ---
 
+
+# --- Compute ---
 # Kinetic energy factor
 t = hbar**2 / (2 * m_star * dz**2)
 # t = 1/(dz**2)
@@ -52,7 +53,7 @@ off_diag = -t * np.ones(N - 1)
 # Solve the eigenvalue problem H*psi = E*psi
 energies, wavefunctions = la.eigh_tridiagonal(diag, off_diag)
 
-# --- 6. Results and Visualization ---
+# --- Visualization ---
 print(f"Ground state energy: {energies[0]/meV:.2f} meV")
 print(f"First excited state: {energies[1]/meV:.2f} meV")
 print(f"Vtotal: {V_total[0]/meV:.2f} meV")
